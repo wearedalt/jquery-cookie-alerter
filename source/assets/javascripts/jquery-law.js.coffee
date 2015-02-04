@@ -1,4 +1,4 @@
-class AlertLaw
+class @AlertLaw
 
   @start: (options={}) ->
     alert = new AlertLaw(options)
@@ -57,9 +57,3 @@ class AlertLaw
     unless @cookieAlreadyAccepted()
       @displayAlert()
       @defineEvents()
-
-$ ->
-  AlertLaw.start()
-
-  # alert = new AlertLaw { cookieUrl: 'foo' }
-  # alert.loadAlert()
