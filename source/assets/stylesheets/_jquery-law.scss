@@ -1,0 +1,27 @@
+$law-bg: #F7F7F4;
+$law-z-index: 900;
+
+#js-law--alert {
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  width: 350px;
+  max-width: 90%;
+  background-color: $law-bg;
+  padding: 1em;
+  z-index: $law-z-index;
+}
+
+#js-law--close {
+  float: right;
+  display: block;
+  padding: 1em;
+  text-decoration: none;
+}
+
+.m-law--title {
+  font-weight: bold;
+  font-size: 120%;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
