@@ -1,0 +1,11 @@
+body {
+  padding: 2em;
+}
+
+.arrow-bottom {
+  font-style: normal;
+  font-size: 3em;
+  &:after {
+    content: "\21E3";
+  }
+}
