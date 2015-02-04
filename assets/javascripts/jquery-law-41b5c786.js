@@ -14,7 +14,7 @@
       if (options == null) {
         options = {};
       }
-      this.cookieUrl = (_ref = options.cookieUrl) != null ? _ref : '/cookies';
+      this.cookieUrl = (_ref = options.cookieUrl) != null ? _ref : 'cookies';
       this.messageTitle = (_ref1 = options.messageTitle) != null ? _ref1 : 'Cookies';
       this.messageContent = (_ref2 = options.messageContent) != null ? _ref2 : 'En poursuivant votre navigation sur notre site, vous en acceptez l‘utilisation pour vous proposer un service personnalisé, des publicités ciblées adaptées à vos centres d’intérêts et réaliser des statistiques de visites.';
       this.cookieName = (_ref3 = options.cookieName) != null ? _ref3 : 'cookies_law';
@@ -81,11 +81,5 @@
     return AlertLaw;
 
   })();
-
-}).call(this);
-(function() {
-  $(function() {
-    return AlertLaw.start();
-  });
 
 }).call(this);
