@@ -5,7 +5,7 @@ class @AlertLaw
     alert.loadAlert()
 
   constructor: (options={}) ->
-    @cookieUrl      = options.cookieUrl      ? '/cookies'
+    @cookieUrl      = options.cookieUrl      ? 'cookies'
     @messageTitle   = options.messageTitle   ? 'Cookies'
     @messageContent = options.messageContent ? 'En poursuivant votre navigation sur notre site, vous en acceptez l‘utilisation pour vous proposer un service personnalisé, des publicités ciblées adaptées à vos centres d’intérêts et réaliser des statistiques de visites.'
     @cookieName     = options.cookieName     ? 'cookies_law'
