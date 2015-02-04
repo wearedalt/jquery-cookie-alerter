@@ -1,16 +1,16 @@
 # jquery-cookie-alerter
 
-Why ?
+###### Why ?
 
 To be in compliance with the ["Cookies" CNIL](http://www.cnil.fr/vos-obligations/sites-web-cookies-et-autres-traceurs/outils-et-codes-sources/la-mesure-daudience/) recommendation
 
-![Illustration for Mobile first cookie alerter]()
+![Illustration for Mobile first cookie alerter](https://raw.githubusercontent.com/siliconsalad/jquery-cookie-alerter/master/source/assets/images/mobile.png)
 
-Features :
+###### Features
 
-- Content is injected with JavaScript for seo-friendly
-- Mobile first
-- Options for custom text and translations
+- Content is injected with JavaScript for __seo-friendly__
+- __Mobile first__
+- Options for __custom text and translations__
 
 ###### Preprocessing
 - [Slim](http://slim-lang.com) *[for html]*
@@ -30,10 +30,8 @@ Features :
 
 ## Installation
 
-How to get the script ?
-
 - Use bower : `bower install jquery-cookie-alerter --save`
-- Download the latest version
+- [Download the latest version](https://github.com/siliconsalad/jquery-cookie-alerter/archive/master.zip)
 
 ## Use
 
@@ -50,7 +48,7 @@ If you want to have a custom message you have some options available :
 
 ## Demo
 
-Want to see the result ? [Visit hte demo page]()
+Want to see the result ? [Visit the demo page](http://siliconsalad.github.io/jquery-cookie-alerter/)
 
 ### License
 

@@ -16,4 +16,5 @@ end
 # Build-specific configuration
 configure :build do
   activate :asset_hash
+  activate :relative_assets
 end
