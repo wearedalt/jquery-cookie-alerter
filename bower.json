@@ -1,22 +1,31 @@
 {
-  "name": "jquery-law",
-  "version": "0.0.1",
-  "homepage": "https://github.com/polymatt/slimmer",
+  "name": "jquery-cookie-alerter",
+  "version": "0.1.0",
+  "homepage": "https://github.com/siliconsalad/jquery-cookie-alerter",
   "authors": [
-    "polymatt <matt@polymathic.me>"
+    "Awesome Team Tech <tech@siliconsalad.com>"
   ],
-  "description": "Slim/Sass/Coffee Starter template for Middleman",
+  "description": "Mobile first jquery alert component for cookie acceptation",
+  "main": [
+    "build/assets/javascripts/jquery-law.js",
+    "build/assets/stylesheets/application.css"
+  ],
+  "keywords": [
+    "jquery",
+    "cookies",
+    "cookie",
+    "message",
+    "alert",
+    "siliconsalad",
+    "mobile",
+    "javascript"
+  ],
   "license": "MIT",
-  "private": false,
   "ignore": [
     "**/.*",
     "node_modules",
     "bower_components",
     "test",
     "tests"
-  ],
-  "dependencies": {
-    "jquery": "~2.1.3",
-    "normalize-css": "~3.0.2"
-  }
+  ]
 }

@@ -15,6 +15,6 @@ end
 
 # Build-specific configuration
 configure :build do
-  activate :asset_hash
+  activate :asset_hash, exts: %w(.wtf)
   activate :relative_assets
 end
