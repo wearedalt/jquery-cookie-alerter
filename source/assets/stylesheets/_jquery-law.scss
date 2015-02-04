@@ -3,13 +3,16 @@ $law-z-index: 900;
 
 #js-law--alert {
   position: fixed;
-  bottom: 10px;
-  left: 10px;
-  width: 350px;
-  max-width: 90%;
+  bottom: 0.625em;
+  left: 0.625em;
   background-color: $law-bg;
   padding: 1em;
   z-index: $law-z-index;
+  min-width: 16.875em;
+  max-width: 85%;
+  @media only screen and (min-width: 53em) {
+    max-width: 18.750em;
+  }
 }
 
 #js-law--close {

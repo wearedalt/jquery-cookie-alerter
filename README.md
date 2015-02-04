@@ -1,4 +1,16 @@
-# jquery-law
+# jquery-cookie-alerter
+
+Why ?
+
+To be in compliance with the ["Cookies" CNIL](http://www.cnil.fr/vos-obligations/sites-web-cookies-et-autres-traceurs/outils-et-codes-sources/la-mesure-daudience/) recommendation
+
+![Illustration for Mobile first cookie alerter]()
+
+Features :
+
+- Content is injected with JavaScript for seo-friendly
+- Mobile first
+- Options for custom text and translations
 
 ###### Preprocessing
 - [Slim](http://slim-lang.com) *[for html]*
@@ -6,65 +18,40 @@
 - [CoffeeScript](http://coffeescript.org) *[for js]*
 
 ###### Tools
-[Middleman](http://middlemanapp.com)
+- [Middleman](http://middlemanapp.com) *[static site generator made easy]*
 - [Bower](http://bower.io) *[js package management]*
 - [GitHub Pages](http://pages.github.com) *[deployment/hosting]*
 
-
 ## Getting Started
 
-1. Install Middleman
+    $ bundle
+    $ middleman server
+    $ middleman build
 
-  ```
-  $ gem install middleman
-  ```
+## Installation
 
-2. Install slimmer template
+How to get the script ?
 
-  ```
-  $ cd ~/.middleman
-  $ git clone git@github.com:polymatt/slimmer.git slimmer
-  ```
+- Use bower : `bower install jquery-cookie-alerter --save`
+- Download the latest version
 
-3. Start your project
+## Use
 
-  ```
-  $ cd ~/path/to/your/project
-  $ middleman init PROJECT_NAME --template=slimmer
-  ```
+    AlertLaw.start();
 
-## Using Bower
+If you want to have a custom message you have some options available :
 
-1. Find and install the packages you need...
+    AlertLaw.start({
+      cookieUrl: "path/to/info-page.html"
+      messageTitle: "Cookies"
+      messageContent: "By continuing your visit to our site, you agree to (...) and make visits statistics."
+      cookieName: "cookies_law"
+    });
 
-  ```
-  $ bower search PACKAGE_NAME
-  $ bower install ACTUAL_PACKAGE_NAME -S
-  ```
+## Demo
 
-2. Include the assets in your js/css files (paths relative to the root 'bower' directory )
-
-  `#=require 'folder/file'` - *for js files*
-
-  `@import 'folder/file'` - *for css files*
-
-## Deploying to GitHub Pages
-
-`$ rake publish`
-
-Thanks to [neo](https://github.com/neo/middleman-gh-pages) for the dpeloyment method. More information available there.
-
-
-Installation
-Get the script
-
-Use bower : bower install cookies-eu-banner --save
-Or download the latest version.
-
-http://www.cnil.fr/vos-obligations/sites-web-cookies-et-autres-traceurs/outils-et-codes-sources/la-mesure-daudience/
-
-http://www.cnil.fr/vos-obligations/sites-web-cookies-et-autres-traceurs/que-dit-la-loi/
+Want to see the result ? [Visit hte demo page]()
 
 ### License
 
-Script is licensed under [MIT license](LICENSE).
+Licensed under [MIT license](LICENSE).
