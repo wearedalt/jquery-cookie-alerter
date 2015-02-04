@@ -2,7 +2,7 @@ class AlertLaw
 
   @start: (options={}) ->
     alert = new AlertLaw(options)
-    alert.alertOrNot()
+    alert.loadAlert()
 
   constructor: (options={}) ->
     @cookieUrl      = options.cookieUrl      ? '/cookies'
@@ -10,31 +10,6 @@ class AlertLaw
     @messageContent = options.messageContent ? 'En poursuivant votre navigation sur notre site, vous en acceptez l‘utilisation pour vous proposer un service personnalisé, des publicités ciblées adaptées à vos centres d’intérêts et réaliser des statistiques de visites.'
     @cookieName     = options.cookieName     ? 'cookies_law'
 
-  getCookie: ->
-    search      = @cookieName + "="
-    returnvalue = ""
-
-    if document.cookie.length
-      offset = document.cookie.indexOf(search)
-
-      if offset != -1
-        offset += search.length
-        end = document.cookie.indexOf(";", offset)
-        if end == -1
-           end = document.cookie.length
-
-        returnvalue = unescape(document.cookie.substring(offset, end))
-
-    return returnvalue
-
-  expirationDate: ->
-    month_number    = 13
-    current_date    = new Date()
-    expiration_date = current_date.setMonth(current_date.getMonth() + month_number)
-    expiration_date.toUTCString()
-
-  alertOrNot: ->
-    @loadAlert() if @getCookie() == ''
 
   buildAlert: ->
     "<div id='js-law--alert' style='display: none;'>
@@ -44,19 +19,47 @@ class AlertLaw
       <a href='#{@cookieUrl}'>En savoir plus</a>
     </div>"
 
-  loadAlert: ->
-    message = @buildAlert()
-    $('body').prepend(message)
-    $('#js-law--alert').slideDown(300)
+  cookieAlreadyAccepted: ->
+    @cookieContent() != ''
 
+  cookieContent: ->
+    search      = @cookieName + "="
+    startString = document.cookie.indexOf(search)
+
+    return '' if startString == -1
+
+    startString   += search.length
+    endString     = document.cookie.indexOf(';', startString)
+    endString     = if endString == -1 then endString else document.cookie.length
+    cookieContent = document.cookie.substring(startString, endString)
+    unescape(cookieContent)
+
+  defineEvents: ->
     $('#js-law--close').on 'click', (event) =>
       event.preventDefault()
       $("#js-law--alert").slideUp(300)
 
     $('a').on 'click', (event) =>
-      document.cookie = "#{@cookieName}=yes;expires='#{@expirationDate()}';path=/"
+      document.cookie = "#{@cookieName}=yes; expires='#{@expirationDate()}'; path=/"
+
+  displayAlert: ->
+    message = @buildAlert()
+    $('body').prepend(message)
+    $('#js-law--alert').slideDown(300)
+
+  expirationDate: ->
+    month_number = 13
+    current_date = expiration_date = new Date()
+    expiration_date.setMonth(current_date.getMonth() + month_number)
+    expiration_date.toUTCString()
+
+  loadAlert: ->
+    unless @cookieAlreadyAccepted()
+      @displayAlert()
+      @defineEvents()
 
 $ ->
   AlertLaw.start()
+
   # alert = new AlertLaw { cookieUrl: 'foo' }
-  # alert.alertOrNot()
+  # alert.loadAlert()
