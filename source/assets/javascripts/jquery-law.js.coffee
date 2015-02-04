@@ -1,14 +1,17 @@
 class AlertLaw
-  constructor: (options={}) ->
-    @cookieUrl      = options.cookieUrl ? '/cookies'
-    @messageTitle   = options.messageTitle ? 'Cookies'
-    @messageContent = options.messageContent ? 'En poursuivant votre navigation sur notre site, vous en acceptez l‘utilisation pour vous proposer un service personnalisé, des publicités ciblées adaptées à vos centres d’intérêts et réaliser des statistiques de visites.'
 
-  cookieName: ->
-    'cookies_law'
+  @start: (options={}) ->
+    alert = new AlertLaw(options)
+    alert.alertOrNot()
+
+  constructor: (options={}) ->
+    @cookieUrl      = options.cookieUrl      ? '/cookies'
+    @messageTitle   = options.messageTitle   ? 'Cookies'
+    @messageContent = options.messageContent ? 'En poursuivant votre navigation sur notre site, vous en acceptez l‘utilisation pour vous proposer un service personnalisé, des publicités ciblées adaptées à vos centres d’intérêts et réaliser des statistiques de visites.'
+    @cookieName     = options.cookieName     ? 'cookies_law'
 
   getCookie: ->
-    search      = @cookieName() + "="
+    search      = @cookieName + "="
     returnvalue = ""
 
     if document.cookie.length
@@ -27,12 +30,11 @@ class AlertLaw
   expirationDate: ->
     month_number    = 13
     current_date    = new Date()
-    current_date.setMonth(current_date.getMonth() + month_number)
-    expirationDate = current_date.toUTCString()
+    expiration_date = current_date.setMonth(current_date.getMonth() + month_number)
+    expiration_date.toUTCString()
 
   alertOrNot: ->
-    if @getCookie() == ''
-      @loadAlert()
+    @loadAlert() if @getCookie() == ''
 
   buildAlert: ->
     "<div id='js-law--alert' style='display: none;'>
@@ -47,13 +49,14 @@ class AlertLaw
     $('body').prepend(message)
     $('#js-law--alert').slideDown(300)
 
-    $('#js-law--close').on 'click', (event) ->
+    $('#js-law--close').on 'click', (event) =>
       event.preventDefault()
       $("#js-law--alert").slideUp(300)
 
-    $('a').on 'click', (event) ->
-      document.cookie = "#{cookieName()}=yes;expires='#{expirationDate()}';path=/"
+    $('a').on 'click', (event) =>
+      document.cookie = "#{@cookieName}=yes;expires='#{@expirationDate()}';path=/"
 
 $ ->
-  alert = new AlertLaw { cookieUrl: 'foo' }
-  alert.alertOrNot()
+  AlertLaw.start()
+  # alert = new AlertLaw { cookieUrl: 'foo' }
+  # alert.alertOrNot()
