@@ -1,0 +1,40 @@
+/* line 1, /Users/dleuliette/workspace/jquery-cookie-alerter/source/assets/stylesheets/_demo.scss */
+body {
+  padding: 2em; }
+
+/* line 5, /Users/dleuliette/workspace/jquery-cookie-alerter/source/assets/stylesheets/_demo.scss */
+.arrow-bottom {
+  font-style: normal;
+  font-size: 3em; }
+  /* line 8, /Users/dleuliette/workspace/jquery-cookie-alerter/source/assets/stylesheets/_demo.scss */
+  .arrow-bottom:after {
+    content: "\21E3"; }
+
+/* line 4, /Users/dleuliette/workspace/jquery-cookie-alerter/source/assets/stylesheets/_jquery-law.scss */
+#js-law--alert {
+  position: fixed;
+  bottom: 0.625em;
+  left: 0.625em;
+  background-color: #F7F7F4;
+  padding: 1em;
+  z-index: 900;
+  min-width: 16.875em;
+  max-width: 85%; }
+  @media only screen and (min-width: 53em) {
+    /* line 4, /Users/dleuliette/workspace/jquery-cookie-alerter/source/assets/stylesheets/_jquery-law.scss */
+    #js-law--alert {
+      max-width: 18.750em; } }
+
+/* line 18, /Users/dleuliette/workspace/jquery-cookie-alerter/source/assets/stylesheets/_jquery-law.scss */
+#js-law--close {
+  float: right;
+  display: block;
+  padding: 1em;
+  text-decoration: none; }
+
+/* line 25, /Users/dleuliette/workspace/jquery-cookie-alerter/source/assets/stylesheets/_jquery-law.scss */
+.m-law--title {
+  font-weight: bold;
+  font-size: 120%;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em; }
