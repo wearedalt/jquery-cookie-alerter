@@ -35,16 +35,20 @@ To be in compliance with the ["Cookies" CNIL](http://www.cnil.fr/vos-obligations
 
 ## Use
 
-    AlertLaw.start();
+``` javascript
+  AlertLaw.start();
+```
 
 If you want to have a custom message you have some options available :
 
-    AlertLaw.start({
-      cookieUrl: "path/to/info-page.html"
-      messageTitle: "Cookies"
-      messageContent: "By continuing your visit to our site, you agree to (...) and make visits statistics."
-      cookieName: "cookies_law"
-    });
+``` javascript
+  AlertLaw.start({
+    cookieUrl:      "path/to/info-page.html",
+    messageTitle:   "Cookies",
+    messageContent: "By continuing your visit to our site, you agree to (...) and make visits statistics.",
+    cookieName:     "cookies_law",
+  });
+```
 
 ## Demo
 
