@@ -1,4 +1,4 @@
-#= require "jquery-law"
+#= require ./jquery-law
 
 $ ->
   AlertLaw.start()
