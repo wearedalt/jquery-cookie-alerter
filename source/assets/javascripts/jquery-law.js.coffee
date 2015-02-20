@@ -9,13 +9,14 @@ class @AlertLaw
     @messageTitle   = options.messageTitle   ? 'Cookies'
     @messageContent = options.messageContent ? 'En poursuivant votre navigation sur notre site, vous en acceptez l‘utilisation pour vous proposer un service personnalisé, des publicités ciblées adaptées à vos centres d’intérêts et réaliser des statistiques de visites.'
     @cookieName     = options.cookieName     ? 'cookies_law'
+    @findOutMore    = options.findOutMore    ? 'En savoir plus'
 
   buildAlert: ->
     "<div id='js-law--alert' style='display: none;'>
       <a href='#' id='js-law--close'>&#10006;</a>
       <p class='m-law--title'>#{@messageTitle}</p>
       <p>#{@messageContent}</p>
-      <a href='#{@cookieUrl}'>En savoir plus</a>
+      <a href='#{@cookieUrl}'>#{@findOutMore}</a>
     </div>"
 
   cookieAlreadyAccepted: ->
