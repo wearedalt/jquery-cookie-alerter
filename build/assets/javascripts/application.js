@@ -10,7 +10,7 @@
     };
 
     function AlertLaw(options) {
-      var _ref, _ref1, _ref2, _ref3;
+      var _ref, _ref1, _ref2, _ref3, _ref4;
       if (options == null) {
         options = {};
       }
@@ -18,10 +18,11 @@
       this.messageTitle = (_ref1 = options.messageTitle) != null ? _ref1 : 'Cookies';
       this.messageContent = (_ref2 = options.messageContent) != null ? _ref2 : 'En poursuivant votre navigation sur notre site, vous en acceptez l‘utilisation pour vous proposer un service personnalisé, des publicités ciblées adaptées à vos centres d’intérêts et réaliser des statistiques de visites.';
       this.cookieName = (_ref3 = options.cookieName) != null ? _ref3 : 'cookies_law';
+      this.findOutMore = (_ref4 = options.findOutMore) != null ? _ref4 : 'En savoir plus';
     }
 
     AlertLaw.prototype.buildAlert = function() {
-      return "<div id='js-law--alert' style='display: none;'> <a href='#' id='js-law--close'>&#10006;</a> <p class='m-law--title'>" + this.messageTitle + "</p> <p>" + this.messageContent + "</p> <a href='" + this.cookieUrl + "'>En savoir plus</a> </div>";
+      return "<div id='js-law--alert' style='display: none;'> <a href='#' id='js-law--close'>&#10006;</a> <p class='m-law--title'>" + this.messageTitle + "</p> <p>" + this.messageContent + "</p> <a href='" + this.cookieUrl + "'>" + this.findOutMore + "</a> </div>";
     };
 
     AlertLaw.prototype.cookieAlreadyAccepted = function() {
