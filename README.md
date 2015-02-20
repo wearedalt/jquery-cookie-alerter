@@ -46,6 +46,7 @@ If you want to have a custom message you have some options available :
     cookieUrl:      "path/to/info-page.html",
     messageTitle:   "Cookies",
     messageContent: "By continuing your visit to our site, you agree to (...) and make visits statistics.",
+    findOutMore:    "Find out more",
     cookieName:     "cookies_law",
   });
 ```
