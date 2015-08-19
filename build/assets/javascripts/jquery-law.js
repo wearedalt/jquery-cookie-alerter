@@ -10,15 +10,15 @@
     };
 
     function AlertLaw(options) {
-      var _ref, _ref1, _ref2, _ref3, _ref4;
+      var _ref;
       if (options == null) {
         options = {};
       }
-      this.cookieUrl = (_ref = options.cookieUrl) != null ? _ref : 'cookies';
-      this.messageTitle = (_ref1 = options.messageTitle) != null ? _ref1 : 'Cookies';
-      this.messageContent = (_ref2 = options.messageContent) != null ? _ref2 : 'En poursuivant votre navigation sur notre site, vous en acceptez l‘utilisation pour vous proposer un service personnalisé, des publicités ciblées adaptées à vos centres d’intérêts et réaliser des statistiques de visites.';
-      this.cookieName = (_ref3 = options.cookieName) != null ? _ref3 : 'cookies_law';
-      this.findOutMore = (_ref4 = options.findOutMore) != null ? _ref4 : 'En savoir plus';
+      this.cookieName = (_ref = options.cookieName) != null ? _ref : 'cookies_law';
+      this.cookieUrl = this.getContentByLocale(options.cookieUrl, 'cookies');
+      this.findOutMore = this.getContentByLocale(options.findOutMore, 'En savoir plus');
+      this.messageContent = this.getContentByLocale(options.messageContent, 'En poursuivant votre navigation sur notre site, vous en acceptez l‘utilisation pour vous proposer un service personnalisé, des publicités ciblées adaptées à vos centres d’intérêts et réaliser des statistiques de visites.');
+      this.messageTitle = this.getContentByLocale(options.messageTitle, 'Cookies');
     }
 
     AlertLaw.prototype.buildAlert = function() {
@@ -70,6 +70,17 @@
       current_date = expiration_date = new Date();
       expiration_date.setMonth(current_date.getMonth() + month_number);
       return expiration_date.toUTCString();
+    };
+
+    AlertLaw.prototype.getContentByLocale = function(contentByLocale, defaultContent) {
+      var _ref;
+      if (contentByLocale == null) {
+        contentByLocale = {};
+      }
+      if (typeof contentByLocale === 'string') {
+        return contentByLocale;
+      }
+      return (_ref = contentByLocale[navigator.language]) != null ? _ref : defaultContent;
     };
 
     AlertLaw.prototype.loadAlert = function() {

@@ -5,11 +5,11 @@ class @AlertLaw
     alert.loadAlert()
 
   constructor: (options={}) ->
-    @cookieUrl      = options.cookieUrl      ? 'cookies'
-    @messageTitle   = options.messageTitle   ? 'Cookies'
-    @messageContent = options.messageContent ? 'En poursuivant votre navigation sur notre site, vous en acceptez l‘utilisation pour vous proposer un service personnalisé, des publicités ciblées adaptées à vos centres d’intérêts et réaliser des statistiques de visites.'
-    @cookieName     = options.cookieName     ? 'cookies_law'
-    @findOutMore    = options.findOutMore    ? 'En savoir plus'
+    @cookieName     = options.cookieName ? 'cookies_law'
+    @cookieUrl      = this.getContentByLocale options.cookieUrl,      'cookies'
+    @findOutMore    = this.getContentByLocale options.findOutMore,    'En savoir plus'
+    @messageContent = this.getContentByLocale options.messageContent, 'En poursuivant votre navigation sur notre site, vous en acceptez l‘utilisation pour vous proposer un service personnalisé, des publicités ciblées adaptées à vos centres d’intérêts et réaliser des statistiques de visites.'
+    @messageTitle   = this.getContentByLocale options.messageTitle,   'Cookies'
 
   buildAlert: ->
     "<div id='js-law--alert' style='display: none;'>
@@ -52,6 +52,10 @@ class @AlertLaw
     current_date = expiration_date = new Date()
     expiration_date.setMonth(current_date.getMonth() + month_number)
     expiration_date.toUTCString()
+
+  getContentByLocale: (contentByLocale={}, defaultContent) ->
+    return contentByLocale if typeof(contentByLocale) == 'string'
+    contentByLocale[navigator.language] ? defaultContent
 
   loadAlert: ->
     unless @cookieAlreadyAccepted()

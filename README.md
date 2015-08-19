@@ -45,11 +45,16 @@ If you want to have a custom message you have some options available :
   AlertLaw.start({
     cookieUrl:      "path/to/info-page.html",
     messageTitle:   "Cookies",
-    messageContent: "By continuing your visit to our site, you agree to (...) and make visits statistics.",
+    messageContent: {
+      fr: "En poursuivant votre navigation sur notre site, vous en acceptez (...) et réaliser des statistiques de visites.",
+      en: "By continuing your visit to our site, you agree to (...) and make visits statistics."
+    },
     findOutMore:    "Find out more",
     cookieName:     "cookies_law",
   });
 ```
+
+`cookieUrl`,  `findOutMore`, `messageContent` and `messageTitle` can be a String or an Object including each translation.
 
 ## Demo
 
